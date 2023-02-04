@@ -110,7 +110,7 @@ function App() {
   }, [tenze])
   
   function setHighScore() {
-    if (counter < localStorage.getItem('score')) {
+    if (counter < Number(localStorage.getItem('score'))) {
       localStorage.setItem('score', counter)
       setScore(counter)
     }
