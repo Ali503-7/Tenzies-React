@@ -1,0 +1,94 @@
+:root {
+  --B-BG: #0B2434;
+  --Box-BG: #ffff;
+  --text: #2B283A;
+  --button: #5035FF;
+  --numbers-AC: #59E391;
+  --numbers-dis: #Ffff;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--B-BG);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Karla';
+}
+
+.box {
+  background-color: var(--Box-BG);
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.box .top h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40.6px;
+  line-height: 30px;
+}
+
+.box .top p {
+  font-weight: 400;
+  font-size: 20.1072px;
+  line-height: 16px;
+}
+
+.box .mid ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0px;
+}
+
+
+.box .mid ul li {
+  font-weight: 700;
+  font-size: 40.5889px;
+  line-height: 24px;
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--numbers-dis);
+  box-shadow: 1px 2px 3px 0px rgb(2 2 2 / 57%);;
+  border-radius: 3.81277px;
+  cursor: pointer;
+}
+
+.box .bot button {
+  font-weight: 700;
+  font-size: 20.384px;
+  line-height: 19px;
+  border: none;
+  background-color: var(--button);
+  width: 150px;
+  height: 50px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.top-Mid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.top-Mid p{
+  font-size: 30px;
+}
