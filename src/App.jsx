@@ -10,8 +10,7 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [startTimer, setStartTimer] = useState(false);
   const [start, setStart] = useState(false)
-  const [score, setScore] = useState(localStorage.getItem('score'))
-  
+  const [score, setScore] = useState(localStorage.getItem('score') || 0);
 
   useEffect(() => {
     if (!startTimer) return;
@@ -40,12 +39,10 @@ function App() {
       ArrLast.push(val.value)
     })
 
-    if (Array.from(new Set(ArrLast)).length == 1 && ArrTrue.length == 10) {
+    if (Array.from(new Set(ArrLast)).length === 1 && ArrTrue.length === 10) {
       setTenze(true)
     }
-    
-    }
-  , [nums])
+  }, [nums])
 
   function GenNewDie() {
       return {
@@ -56,7 +53,7 @@ function App() {
   }
 
   function Show() {
-    nums.map(li => <li onClick={() => handelDice(li.id)} key={li.id} style={{backgroundColor: li.isHold ? "#59E391": "white"}}>{li.value}</li>)
+    return nums.map(li => <li onClick={() => handelDice(li.id)} key={li.id} style={{backgroundColor: li.isHold ? "#59E391": "white"}}>{li.value}</li>)
   }
 
   function allNewDice() {
@@ -86,7 +83,7 @@ function App() {
 
   function PlayAgain() {
     setNums(() => allNewDice())
-    setTenze(!tenze)
+    setTenze(false)
     setRolls(0)
     setCounter(0)
     setStart(false)
@@ -110,11 +107,17 @@ function App() {
   }, [tenze])
   
   function setHighScore() {
-    if (counter < Number(localStorage.getItem('score'))) {
+  try {
+    if (!localStorage.getItem('score') || counter < Number(localStorage.getItem('score'))) {
       localStorage.setItem('score', counter)
       setScore(counter)
     }
+  } catch (error) {
+    console.error(error);
   }
+}
+
+
 
   function SetButton() {
     if (start) {
